@@ -1,7 +1,3 @@
 #!/usr/bin/python3
-import dis
-import types
-
 def magic_calculation(a, b):
-    def dummy():
-        return 98 ** a + b
+    return 98 ** a + b
