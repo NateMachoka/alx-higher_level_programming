@@ -1,2 +1,13 @@
-#!/bin/bash
-python3 -c "import py_compile; py_compile.compile('$PYFILE', '$PYFILE' + 'c')"
+#!/usr/bin/python3
+import py_compile
+import os
+import sys
+
+
+pyfile = os.environ['PYFILE']
+
+try:
+    py_compile.compile(pyfile, pyfile + 'c')
+    print(f"Compiling {pyfile} ...")
+except Exception as e:
+    print("Compilation failed:", e)
