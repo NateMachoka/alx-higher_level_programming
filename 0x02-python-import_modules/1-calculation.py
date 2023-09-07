@@ -10,10 +10,10 @@ mul_result = mul(a, b)
 div_result = div(a, b)
 
 
-print(f"{a} + {b} = {add_result}")
-print(f"{a} - {b} = {sub_result}")
-print(f"{a} * {b} = {mul_result}")
-print(f"{a} / {b} = {div_result}")
+print("{0} + {1} = {2}".format(a, b, add_result))
+print("{0} - {1} = {2}".format(a, b, sub_result))
+print("{0} * {1} = {2}".format(a, b, mul_result))
+print("{0} / {1} = {2}".format(a, b, div_result))
 
 if __name__ == "__main__":
     pass
