@@ -2,6 +2,7 @@
 
 import sys
 
+
 def print_arguments(argv):
     num_args = len(argv)
 
