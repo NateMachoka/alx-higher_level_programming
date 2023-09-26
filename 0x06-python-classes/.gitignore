@@ -1,0 +1,4 @@
+*.md~*
+*.py~
+*.main.py
+*.main.py~
