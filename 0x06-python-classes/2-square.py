@@ -1,39 +1,35 @@
 #!/usr/bin/python3
 
-"""Has a square class
-This module contains a simple square class called Square.
+""" Square class
+
+    A module containing a square class called Square.
 """
 
-class Square:
-    """A square shape class
 
-    A basic class representing a square shape.
+class Square:
+    """A square class
 
     Attributes:
-        None
+        __size (int): size of the square
     """
+    __size = 3
 
     def __init__(self, size=0):
-        """Initializes a new square instance with an optional size.
+        """Initialize class with size variable
 
         Args:
-            size (int, optional): The size (side length) of the square. Default is 0.
+            size(int): size of the square
+
+        Returns:
+            None
 
         Raises:
-            TypeError: If size is not an integer.
-            ValueError: If size is less than 0.
+            TypeError: if size is not an integer
+            ValueError: if size is less than 0
         """
-        if not isinstance(size, int):
+        if type(size) is not int:
             raise TypeError("size must be an integer")
         elif size < 0:
             raise ValueError("size must be >= 0")
         else:
             self.__size = size
-
-    def area(self):
-        """Calculates and returns the area of the square.
-
-        Returns:
-            int: The area of the square.
-        """
-        return self.__size * self.__size
