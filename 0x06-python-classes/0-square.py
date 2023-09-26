@@ -1,12 +1,18 @@
 #!/usr/bin/python3
 
+"""Contains a square class
 
-"""Square Class
-
-Does nothing for the moment. will build upon it.
+A module containing a square class called Square.
 
 """
 
 
 class Square:
+    """A square shape class
+
+    A simple example class that represents a square.
+
+    Attributes:
+        None
+    """
     pass
