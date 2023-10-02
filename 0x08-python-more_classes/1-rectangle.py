@@ -4,6 +4,7 @@
 Module defining a Rectangle class with width and height attributes.
 """
 
+
 class Rectangle:
     """
     A class that represents a rectangle.
