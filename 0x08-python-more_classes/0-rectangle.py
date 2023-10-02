@@ -1,4 +1,8 @@
 #!/usr/nin/python3
 
 class Rectangle:
-    pass
+    """A class to represent a rectangle."""
+
+
+    def __init__(self):
+        pass
