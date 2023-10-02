@@ -1,8 +1,11 @@
-#!/usr/nin/python3
+#!/usr/bin/python3
+
+"""
+Module defining a simple Rectangle class
+"""
 
 class Rectangle:
-    """A class to represent a rectangle."""
-
-
-    def __init__(self):
-        pass
+    """
+    A basic representation of a rectangle.
+    """
+    pass
