@@ -5,6 +5,7 @@
 A rectangle class with attributes width and height
 """
 
+
 class Rectangle:
     """A rectangle class
 
