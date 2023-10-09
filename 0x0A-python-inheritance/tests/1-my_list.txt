@@ -1,0 +1,66 @@
+# Custom Tests for the module 1-my_list.py
+
+* The function is expected to print an ascending sorted list of integer elements.
+
+## Constraints
+
+* `print_sorted` is a public instance method.
+* All elements of the list will be of type int.
+* The list should be printed in ascending, sorted order.
+
+===========
+## TESTS
+===========
+
+=====================>
+# Test Case 1: Basic Usage
+# Create a list object, append integers, and print sorted list.
+
+>>> MyList = __import__('1-my_list').MyList
+>>> list1 = MyList()
+>>> list1.append(4)
+>>> list1.append(1)
+>>> list1.append(3)
+>>> list1.append(2)
+>>> list1.print_sorted()
+[1, 2, 3, 4]
+
+=====================>
+# Test Case 2: Empty List
+# Create an empty list and print it sorted.
+
+>>> list2 = MyList()
+>>> list2.print_sorted()
+[]
+
+=====================>
+# Test Case 3: Negative Integers
+# Append negative integers and print them sorted.
+
+>>> list3 = MyList()
+>>> list3.append(-10)
+>>> list3.append(-5)
+>>> list3.append(-20)
+>>> list3.append(-1)
+>>> list3.print_sorted()
+[-20, -10, -5, -1]
+
+=====================>
+# Test Case 4: Single Integer
+# Append a single integer and print it.
+
+>>> list4 = MyList()
+>>> list4.append(42)
+>>> list4.print_sorted()
+[42]
+
+=====================>
+# Test Case 5: Large List
+# Append a large number of integers and print them sorted.
+
+>>> list5 = MyList()
+>>> for i in range(100, 0, -1):
+...     list5.append(i)
+>>> list5.print_sorted()
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100]
+
