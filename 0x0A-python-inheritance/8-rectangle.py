@@ -3,6 +3,7 @@
 """Module containing a class Rectangle that inherits from BaseGeometry.
 """
 
+
 class BaseGeometry:
     """A class representing a basic geometry object.
     """
@@ -19,7 +20,8 @@ class BaseGeometry:
         """Validate an integer value for a given attribute.
 
         Args:
-            name (str): The name of the attribute being validated (always a string).
+            name (str): The name of the attribute being validated
+(always a string).
             value (int): The value to validate.
 
         Raises:
@@ -30,6 +32,7 @@ class BaseGeometry:
             raise TypeError(f"{name} must be an integer")
         if value <= 0:
             raise ValueError(f"{name} must be greater than 0")
+
 
 class Rectangle(BaseGeometry):
     """A class representing a rectangle.
