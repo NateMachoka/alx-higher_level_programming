@@ -1,0 +1,24 @@
+# Custom Tests for the module 7-base_geometry.py
+
+* The class BaseGeometry is expected to have two public instance methods:
+  - area()
+  - integer_validator(name, value)
+
+## Constraints
+
+* The area() method raises an Exception with the message "area() is not implemented."
+* The integer_validator method validates the value:
+  - name is always a string.
+  - If value is not an integer, it raises a TypeError with the message "<name> must be an integer."
+  - If value is less than or equal to 0, it raises a ValueError with the message "<name> must be greater than 0."
+
+===========
+## TESTS
+===========
+
+=====================>
+# Test Case 1: Testing the area() method
+
+>>> from 7-base_geometry import BaseGeometry
+
+# Creating an instance of
