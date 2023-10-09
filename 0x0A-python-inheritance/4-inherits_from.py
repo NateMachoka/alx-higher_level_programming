@@ -4,6 +4,7 @@
 (directly or indirectly) from a specified class.
 """
 
+
 def inherits_from(obj, a_class):
     """Check if the object's class inherited (directly or indirectly) from the
 specified class.
