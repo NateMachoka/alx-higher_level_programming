@@ -92,6 +92,7 @@ class Square(Rectangle):
         """Return a string representation of the square.
 
         Returns:
-            str: A string describing the square in the format [Square] <size>/<size>.
+            str: A string describing the square in the format
+[Square] <size>/<size>.
         """
         return f"[Square] {self.__size}/{self.__size}"
