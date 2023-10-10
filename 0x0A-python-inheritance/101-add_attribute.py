@@ -3,6 +3,7 @@
 """Module containing a function to add a new attribute to an object.
 """
 
+
 def add_attribute(obj, attr_name, attr_value):
     """Add a new attribute to an object if possible.
 
