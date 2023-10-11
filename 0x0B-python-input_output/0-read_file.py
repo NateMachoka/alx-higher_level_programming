@@ -7,22 +7,16 @@ Module containing a function to read and print the contents of a text file.
 
 def read_file(filename=""):
     """
-    Read the contents of a text file and print them to stdout.
+    Read and print the contents of a text file (UTF8) to stdout.
 
     Parameters:
-    filename (str): The name of the text file to be read (UTF8).
-Default is an empty string.
+    filename (str): The name of the file to be read.
 
     Returns:
     None
     """
-
-    try:
-        # Open the file for reading with UTF-8 encoding
-        with open(filename, 'r', encoding='utf-8') as file:
-            # Iterate through each line in the file and print it
-            for line in file:
-                print(line, end='')
-    except Exception as e:
-        print(f"An error occurred: {str(e)}")
-        return 0
+    # Open the file in read mode using the with statement
+    with open(filename, 'r', encoding='utf-8') as file:
+        # Read the file line by line and print it to stdout
+        for line in file:
+            print(line, end='')
