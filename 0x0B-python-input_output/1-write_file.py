@@ -24,6 +24,10 @@ empty string.
         with open(filename, 'w', encoding='utf-8') as file:
             char_count = file.write(text)
             return char_count
+    except PermissionError:
+        print(f"Permission denied: Cannot write to '{filename}'")
+        return -1
+
     except Exception as e:
         print(f"An error occurred: {str(e)}")
         return 0
