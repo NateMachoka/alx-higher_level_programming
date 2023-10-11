@@ -6,13 +6,9 @@ the number of characters written.
 """
 
 
-#!/usr/bin/python3
-
-"""Module for file manipulation"""
-
 def write_file(filename="", text=""):
     """
-    Write a string to a text file (UTF8) and return the number of characters written.
+    Write a string to a text file
 
     Parameters:
     filename (str): The name of the file to write to.
