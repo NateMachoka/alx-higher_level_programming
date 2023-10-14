@@ -77,7 +77,7 @@ class TestRectangle(unittest.TestCase):
         # Test the __str__ method
         r = Rectangle(3, 2, 1, 1, 10)
         expected_str = "[Rectangle] (10) 1/1 - 3/2"
-        self.assertEqual(str(r), expected_str
+        self.assertEqual(str(r), expected_str)
 
 
 if __name__ == "__main__":
