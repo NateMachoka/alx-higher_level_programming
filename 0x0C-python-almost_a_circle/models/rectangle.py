@@ -146,3 +146,10 @@ class Rectangle(Base):
             f"[Rectangle] ({self.id}) "
             f"{self.x}/{self.y} - {self.width}/{self.height}"
         )
+
+    def display(self):
+        """Print rectangle with '#' characters, considering x and y."""
+        for _ in range(self.__y):
+            print()
+        for _ in range(self.__height):
+            print(" " * self.__x + "#" * self.__width)

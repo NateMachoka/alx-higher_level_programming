@@ -79,6 +79,15 @@ class TestRectangle(unittest.TestCase):
         expected_str = "[Rectangle] (10) 1/1 - 3/2"
         self.assertEqual(str(r), expected_str)
 
+    def test_display_with_offset(self):
+        # Test the display method with x and y offsets
+        r = Rectangle(3, 2, 2, 1)
+        expected_output = '\n  ###\n  ###\n'
+
+        with patch("sys.stdout", new_callable=io.StringIO) as mock_stdout:
+            r.display()
+            self.assertEqual(mock_stdout.getvalue(), expected_output)
+
 
 if __name__ == "__main__":
     unittest.main()
