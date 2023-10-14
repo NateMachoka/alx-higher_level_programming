@@ -135,3 +135,14 @@ class Rectangle(Base):
         """Print the rectangle using '#' characters to stdout."""
         for i in range(self.__height):
             print("#" * self.__width)
+
+    def __str__(self):
+        """Override the string representation of the Rectangle.
+
+        Returns:
+            str: A formatted string representing the Rectangle.
+        """
+        return (
+            f"[Rectangle] ({self.id}) "
+            f"{self.x}/{self.y} - {self.width}/{self.height}"
+        )

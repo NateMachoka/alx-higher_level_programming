@@ -64,10 +64,6 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle(5, 4)
         self.assertEqual(r.area(), 20)
 
-
-class TestRectangle(unittest.TestCase):
-    # ... (previous test cases)
-
     def test_display(self):
         # Test the display method by capturing stdout
         r = Rectangle(3, 2)
@@ -76,6 +72,12 @@ class TestRectangle(unittest.TestCase):
         with patch("sys.stdout", new_callable=io.StringIO) as mock_stdout:
             r.display()
             self.assertEqual(mock_stdout.getvalue(), expected_output)
+
+    def test_str(self):
+        # Test the __str__ method
+        r = Rectangle(3, 2, 1, 1, 10)
+        expected_str = "[Rectangle] (10) 1/1 - 3/2"
+        self.assertEqual(str(r), expected_str
 
 
 if __name__ == "__main__":
