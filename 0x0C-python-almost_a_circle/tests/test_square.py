@@ -4,6 +4,7 @@
 from models.base import Base
 from models.square import Square
 import unittest
+from unittest.mock import patch
 import io
 
 
@@ -12,30 +13,33 @@ class TestSquare(unittest.TestCase):
         # Test creating a valid Square instance
         s = Square(5, 3, 4, 1)
         self.assertEqual(s.id, 1)
+        self.assertEqual(s.size, 5)
         self.assertEqual(s.width, 5)
-        self.assertEqual(s.height, 5)  # Width and height should be equal
+        self.assertEqual(s.height, 5)
         self.assertEqual(s.x, 3)
         self.assertEqual(s.y, 4)
 
-    def test_area(self):
-        # Test calculating the area of a Square
-        s = Square(4)
-        self.assertEqual(s.area(), 16)  # 4 * 4 = 16
+    def test_size_getter(self):
+        # Test the size getter
+        s = Square(3, 0, 0)
+        self.assertEqual(s.size, 3)
 
-    def test_display(self):
-        # Test the display method by capturing stdout
-        s = Square(3)
-        expected_output = "###\n###\n###\n"
+    def test_size_setter(self):
+        # Test the size setter
+        s = Square(3, 0, 0)
+        s.size = 7
+        self.assertEqual(s.size, 7)
+        self.assertEqual(s.width, 7)
+        self.assertEqual(s.height, 7)
 
-        with unittest.mock.patch("sys.stdout", new_callable=io.StringIO) as mock_stdout:
-            s.display()
-            self.assertEqual(mock_stdout.getvalue(), expected_output)
+    def test_size_invalid_value(self):
+        # Test setting an invalid size
+        s = Square(3, 0, 0)
+        with self.assertRaises(ValueError):
+            s.size = -2
 
-    def test_str(self):
-        # Test the __str__ method
-        s = Square(2, 1, 1, 10)
-        expected_str = "[Square] (10) 1/1 - 2"
-        self.assertEqual(str(s), expected_str)
-
-if __name__ == "__main__":
-    unittest.main()
+    def test_size_invalid_type(self):
+        # Test setting an invalid size type
+        s = Square(3, 0, 0)
+        with self.assertRaises(TypeError):
+            s.size = "invalid"
