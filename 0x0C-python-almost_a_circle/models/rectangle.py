@@ -22,7 +22,7 @@ class Rectangle(Base):
         Attributes:
             id (int): Public instance attribute representing the object's ID.
             width (int): Private instance attribute for the rectangle's width.
-            height (int): Private instance attribute for the rectangle's height.
+            height (int): Private instance attribute for rectangle's height
             x (int): Private instance attribute for the X-coordinate.
             y (int): Private instance attribute for the Y-coordinate.
         """
@@ -122,3 +122,11 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
+
+    def area(self):
+        """Calculate and return the area of the rectangle.
+
+        Returns:
+            int: The area of the rectangle.
+        """
+        return self.__width * self.__height
