@@ -3,8 +3,10 @@
 """Module containing test cases for the Rectangle class"""
 
 import unittest
+import io
 from models.rectangle import Rectangle
 from models.base import Base
+from unittest.mock import patch
 
 
 class TestRectangle(unittest.TestCase):
@@ -61,6 +63,19 @@ class TestRectangle(unittest.TestCase):
         # Test calculating the area of a Rectangle
         r = Rectangle(5, 4)
         self.assertEqual(r.area(), 20)
+
+
+class TestRectangle(unittest.TestCase):
+    # ... (previous test cases)
+
+    def test_display(self):
+        # Test the display method by capturing stdout
+        r = Rectangle(3, 2)
+        expected_output = "###\n###\n"
+
+        with patch("sys.stdout", new_callable=io.StringIO) as mock_stdout:
+            r.display()
+            self.assertEqual(mock_stdout.getvalue(), expected_output)
 
 
 if __name__ == "__main__":
