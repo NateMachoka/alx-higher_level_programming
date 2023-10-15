@@ -69,3 +69,17 @@ class Base:
         # Write the JSON string to the file, overwriting it if it exists
         with open(filename, "w") as file:
             file.write(json_str)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """Converts a JSON string to a list of dictionaries.
+
+        Args:
+            json_string (str): A JSON string representing a list of dictionaries.
+
+        Returns:
+            list: A list of dictionaries represented by the JSON string.
+        """
+        if json_string is None or json_string == "":
+            return []
+        return json.loads(json_string)

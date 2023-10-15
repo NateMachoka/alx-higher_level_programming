@@ -110,6 +110,30 @@ class TestBase(unittest.TestCase):
         # Clean up: remove the file
         os.remove("Square.json")
 
+    def test_from_json_string_with_valid_json(self):
+        json_string = '[{"id": 1, "name": "Alice"}, {"id": 2, "name": "Bob"}]'
+        expected_list = [{"id": 1, "name": "Alice"}, {"id": 2, "name": "Bob"}]
+
+        result = Base.from_json_string(json_string)
+
+        self.assertEqual(result, expected_list)
+
+    def test_from_json_string_with_empty_json(self):
+        json_string = ''
+        expected_list = []
+
+        result = Base.from_json_string(json_string)
+
+        self.assertEqual(result, expected_list)
+
+    def test_from_json_string_with_none(self):
+        json_string = None
+        expected_list = []
+
+        result = Base.from_json_string(json_string)
+
+        self.assertEqual(result, expected_list)
+
 
 if __name__ == "__main__":
     unittest.main()
