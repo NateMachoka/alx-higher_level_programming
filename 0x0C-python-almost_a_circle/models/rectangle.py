@@ -180,3 +180,16 @@ class Rectangle(Base):
             'x': self.x,
             'y': self.y
         }
+
+    def to_dictionary(self):
+        """Returns the dictionary representation of the square.
+
+        Returns:
+            dict: A dictionary containing id, size, x, and y.
+        """
+        return {
+            'id': self.id,
+            'size': self.width,  # Width and size are the same for a square
+            'x': self.x,
+            'y': self.y
+        }
