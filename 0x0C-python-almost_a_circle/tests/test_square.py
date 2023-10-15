@@ -43,3 +43,47 @@ class TestSquare(unittest.TestCase):
         s = Square(3, 0, 0)
         with self.assertRaises(TypeError):
             s.size = "invalid"
+
+    def test_update_with_args(self):
+        # Test updating with *args
+        s = Square(1, 2, 3, 4)
+        s.update(6, 7)
+
+        self.assertEqual(s.id, 6)
+        self.assertEqual(s.size, 7)
+        self.assertEqual(s.x, 2)  # x should not change
+        self.assertEqual(s.y, 3)  # y should not change
+
+    def test_update_with_kwargs(self):
+        # Test updating with **kwargs
+        s = Square(1, 2, 3, 4)
+        s.update(size=7, x=8)
+
+        self.assertEqual(s.id, 4)  # ID should not change
+        self.assertEqual(s.size, 7)
+        self.assertEqual(s.x, 8)
+        self.assertEqual(s.y, 3)  # Y should not change
+
+    def test_update_with_subset_of_args(self):
+        # Test updating with a subset of *args
+        s = Square(1, 2, 3, 4)
+        s.update(6, 7, x=8)
+
+        self.assertEqual(s.id, 6)
+        self.assertEqual(s.size, 7)
+        self.assertEqual(s.x, 2)
+        self.assertEqual(s.y, 3)  # y should not change
+
+    def test_update_with_both(self):
+        # Test updating with both *args and **kwargs
+        s = Square(1, 2, 3, 4)
+        s.update(6, size=7, x=8, y=9)
+
+        self.assertEqual(s.id, 6)
+        self.assertEqual(s.size, 1)
+        self.assertEqual(s.x, 2)
+        self.assertEqual(s.y, 3)
+
+
+if __name__ == "__main__":
+    unittest.main()
