@@ -134,6 +134,39 @@ class TestBase(unittest.TestCase):
 
         self.assertEqual(result, expected_list)
 
+    def test_create_with_rectangle(self):
+        # Create a dictionary with attributes for a Rectangle
+        attrs = {'id': 1, 'width': 10, 'height': 4, 'x': 0, 'y': 0}
+
+        # Create a Rectangle instance using the create method
+        r = Rectangle.create(**attrs)
+
+        # Check if the created instance is of type Rectangle
+        self.assertIsInstance(r, Rectangle)
+
+        # Check if the attributes match the expected values
+        self.assertEqual(r.id, attrs['id'])
+        self.assertEqual(r.width, attrs['width'])
+        self.assertEqual(r.height, attrs['height'])
+        self.assertEqual(r.x, attrs['x'])
+        self.assertEqual(r.y, attrs['y'])
+
+    def test_create_with_square(self):
+        # Create a dictionary with attributes for a Square
+        attrs = {'id': 1, 'size': 5, 'x': 2, 'y': 2}
+
+        # Create a Square instance using the create method
+        s = Square.create(**attrs)
+
+        # Check if the created instance is of type Square
+        self.assertIsInstance(s, Square)
+
+        # Check if the attributes match the expected values
+        self.assertEqual(s.id, attrs['id'])
+        self.assertEqual(s.size, attrs['size'])
+        self.assertEqual(s.x, attrs['x'])
+        self.assertEqual(s.y, attrs['y'])
+
 
 if __name__ == "__main__":
     unittest.main()

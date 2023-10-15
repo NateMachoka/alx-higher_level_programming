@@ -30,6 +30,20 @@ class Base:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
+    @classmethod
+    def create(cls, **dictionary):
+        if cls.__name__ == "Rectangle":
+            dummy = cls(1, 1)
+        elif cls.__name__ == "Square":
+            dummy = cls(1)
+        else:
+            dummy = None
+
+        if dummy:
+            dummy.update(**dictionary)
+        return dummy
+
+
     @staticmethod
     def to_json_string(list_dictionaries):
         """Converts a list of dictionaries to a JSON string.
