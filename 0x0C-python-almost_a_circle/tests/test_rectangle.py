@@ -147,6 +147,20 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.x, 9)
         self.assertEqual(r.y, 10)
 
+    def to_dictionary(self):
+        """Returns the dictionary representation of the rectangle.
+
+        Returns:
+            dict: A dictionary containing id, width, height, x, and y.
+        """
+        return {
+            'id': self.id,
+            'width': self.width,
+            'height': self.height,
+            'x': self.x,
+            'y': self.y
+        }
+
 
 if __name__ == "__main__":
     unittest.main()
