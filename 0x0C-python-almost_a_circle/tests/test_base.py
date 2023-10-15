@@ -170,6 +170,39 @@ class TestBase(unittest.TestCase):
         self.assertEqual(s.x, attrs['x'])
         self.assertEqual(s.y, attrs['y'])
 
+    def test_load_from_file_with_existing_file(self):
+        # Create and save some instances to a JSON file
+        r1 = Rectangle(10, 4)
+        r2 = Rectangle(5, 5)
+        r3 = Rectangle(7, 3)
+        Rectangle.save_to_file([r1, r2, r3])
+
+        # Load instances from the file
+        instances = Rectangle.load_from_file()
+
+        # Check if the instances are of the correct type
+        self.assertIsInstance(instances, list)
+        all_instances_are_rectangles = all(
+            isinstance(instance, Rectangle) for instance in instances
+            )
+        self.assertTrue(all_instances_are_rectangles)
+
+        # Check if the loaded instances match the ones saved
+        self.assertEqual(len(instances), 3)
+        self.assertEqual(instances[0].id, r1.id)
+        self.assertEqual(instances[1].id, r2.id)
+        self.assertEqual(instances[2].id, r3.id)
+
+        # Clean up: remove the file
+        os.remove("Rectangle.json")
+
+    def test_load_from_file_with_non_existing_file(self):
+        # Try to load from a non-existing file
+        instances = Square.load_from_file()
+
+        # Check if the result is an empty list
+        self.assertEqual(instances, [])
+
 
 if __name__ == "__main__":
     unittest.main()

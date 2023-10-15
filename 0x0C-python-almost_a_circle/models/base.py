@@ -43,7 +43,6 @@ class Base:
             dummy.update(**dictionary)
         return dummy
 
-
     @staticmethod
     def to_json_string(list_dictionaries):
         """Converts a list of dictionaries to a JSON string.
@@ -89,7 +88,7 @@ class Base:
         """Converts a JSON string to a list of dictionaries.
 
         Args:
-            json_string (str): A JSON string representing a list of dictionaries.
+            json_string (str): JSON string representing a list of dictionaries
 
         Returns:
             list: A list of dictionaries represented by the JSON string.
@@ -97,3 +96,23 @@ class Base:
         if json_string is None or json_string == "":
             return []
         return json.loads(json_string)
+
+    @classmethod
+    def load_from_file(cls):
+        """Loads instances from a JSON file.
+
+        Returns:
+            list: A list of instances of the current class.
+        """
+        filename = f"{cls.__name__}.json"
+
+        try:
+            with open(filename, "r") as file:
+                json_data = file.read()
+                if not json_data:
+                    return []
+                data = cls.from_json_string(json_data)
+                instances = [cls.create(**attributes) for attributes in data]
+                return instances
+        except FileNotFoundError:
+            return []
