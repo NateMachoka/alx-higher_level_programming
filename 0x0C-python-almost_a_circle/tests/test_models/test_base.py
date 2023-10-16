@@ -203,6 +203,36 @@ class TestBase(unittest.TestCase):
         # Check if the result is an empty list
         self.assertEqual(instances, [])
 
+    def setUp(self):
+        # Initialize test objects
+        self.rectangles = [Rectangle(1, 2, 3, 4, 5), Rectangle(6, 7, 8, 9, 10)]
+        self.squares = [Square(11, 12, 13, 14), Square(15, 16, 17, 18)]
+
+    def test_save_and_load_rectangle_csv(self):
+        # Test saving and loading Rectangle objects to/from CSV
+        Rectangle.save_to_file_csv(self.rectangles)
+        loaded_rectangles = Rectangle.load_from_file_csv()
+
+        self.assertEqual(len(loaded_rectangles), 2)
+        self.assertEqual(loaded_rectangles[0].id, 5)
+        self.assertEqual(loaded_rectangles[1].id, 10)
+
+    def test_save_and_load_square_csv(self):
+        # Test saving and loading Square objects to/from CSV
+        Square.save_to_file_csv(self.squares)
+        loaded_squares = Square.load_from_file_csv()
+
+        self.assertEqual(len(loaded_squares), 2)
+        self.assertEqual(loaded_squares[0].id, 14)
+        self.assertEqual(loaded_squares[1].id, 18)
+
+    def tearDown(self):
+        # Clean up the CSV files after the tests
+        if os.path.exists("Rectangle.csv"):
+            os.remove("Rectangle.csv")
+        if os.path.exists("Square.csv"):
+            os.remove("Square.csv")
+
 
 if __name__ == "__main__":
     unittest.main()

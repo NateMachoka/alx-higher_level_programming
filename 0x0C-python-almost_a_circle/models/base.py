@@ -2,6 +2,9 @@
 
 """A module that has a Base class"""
 import json
+import csv
+from models.rectangle import Rectangle
+from models.square import Square
 
 
 class Base:
@@ -116,3 +119,53 @@ class Base:
                 return instances
         except FileNotFoundError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        if list_objs is None:
+            list_objs = []
+
+        filename = cls.__name__ + ".csv"
+
+        with open(filename, mode='w', newline='') as file:
+            writer = csv.writer(file)
+            if cls.__name__ == "Rectangle":
+                for obj in list_objs:
+                    writer.writerow
+                    ([obj.id, obj.width, obj.height, obj.x, obj.y])
+            elif cls.__name__ == "Square":
+                for obj in list_objs:
+                    writer.writerow([obj.id, obj.size, obj.x, obj.y])
+
+    @classmethod
+    def load_from_file_csv(cls):
+        filename = cls.__name__ + ".csv"
+        try:
+            with open(filename, mode='r') as file:
+                reader = csv.reader(file)
+                if cls.__name__ == "Rectangle":
+                    fields = ["id", "width", "height", "x", "y"]
+                elif cls.__name__ == "Square":
+                    fields = ["id", "size", "x", "y"]
+                obj_list = []
+                for row in reader:
+                    obj_dict = {}
+                    for i, field in enumerate(fields):
+                        obj_dict[field] = int(row[i])
+                    obj = cls.create(**obj_dict)
+                    obj_list.append(obj)
+                return obj_list
+        except FileNotFoundError:
+            return []
+
+    @staticmethod
+    def create(**dictionary):
+        if dictionary and dictionary.get("id") is not None:
+            if dictionary.get("id") == 1:
+                obj = Rectangle(1, 1)
+            elif dictionary.get("id") == 2:
+                obj = Rectangle(1, 1)
+            else:
+                obj = Square(1)
+            obj.update(**dictionary)
+            return obj

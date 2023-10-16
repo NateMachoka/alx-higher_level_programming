@@ -59,3 +59,13 @@ class Square(Rectangle):
                 self.height = value  # Update height
             elif hasattr(self, key):
                 setattr(self, key, value)
+
+    def to_dictionary(self):
+        """Return a dictionary representation of the Square."""
+        square_dict = {
+            "id": self.id,
+            "size": self.size,
+            "x": self.x,
+            "y": self.y
+        }
+        return square_dict
