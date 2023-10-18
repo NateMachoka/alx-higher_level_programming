@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
+
 """A module that has a Rectangle class"""
-
-
 from models.base import Base
+from models.rectangle import Rectangle
 
 
 class Rectangle(Base):

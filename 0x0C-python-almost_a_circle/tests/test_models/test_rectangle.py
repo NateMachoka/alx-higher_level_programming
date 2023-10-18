@@ -5,7 +5,7 @@
 import unittest
 import io
 from models.rectangle import Rectangle
-from models.base import Base
+from models.helpers import Base
 from unittest.mock import patch
 
 

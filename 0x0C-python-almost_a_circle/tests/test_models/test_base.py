@@ -5,7 +5,7 @@
 import unittest
 import json
 import os
-from models.base import Base
+from models.helpers import Base
 from models.rectangle import Rectangle
 from models.square import Square
 
@@ -138,6 +138,9 @@ class TestBase(unittest.TestCase):
         self.assertEqual(result, expected_list)
 
     def test_create_with_rectangle(self):
+         # Import the Rectangle class here
+        from models.rectangle import Rectangle
+
         # Create a dictionary with attributes for a Rectangle
         attrs = {'id': 1, 'width': 10, 'height': 4, 'x': 0, 'y': 0}
 

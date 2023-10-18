@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 
-"""Module for the Square class"""
-from models.rectangle import Rectangle
-from models.square import Square
+"""Module for the helper class to avoid circular import"""
 
 
 class Square(Rectangle):

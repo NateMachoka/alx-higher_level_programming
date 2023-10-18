@@ -3,6 +3,8 @@
 """A module that has a Base class"""
 import json
 import csv
+import unittest
+from models.helpers import Base
 from models.rectangle import Rectangle
 from models.square import Square
 
@@ -36,15 +38,17 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         if cls.__name__ == "Rectangle":
-            dummy = cls(1, 1)
+            from models.rectangle import Rectangle
+            dummy = Rectangle(1, 1)
         elif cls.__name__ == "Square":
-            dummy = cls(1)
+            from models.square import Square
+            dummy = Square(1)
         else:
             dummy = None
 
         if dummy:
             dummy.update(**dictionary)
-        return dummy
+            return dummy
 
     @staticmethod
     def to_json_string(list_dictionaries):
