@@ -1,3 +1,3 @@
---command to insert a new row into firs_table
+-- command to insert a new row into first_table
 
 INSERT INTO first_table (id, name) VALUES (89, 'Best School');
