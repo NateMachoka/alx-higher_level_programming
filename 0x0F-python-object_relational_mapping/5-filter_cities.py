@@ -28,8 +28,11 @@ def main():
     cursor.execute(query, (state_name,))
     cities = cursor.fetchall()
 
-    if cities:
-        print(", ".join([city[0] for city in cities]))
+    for index, city in enumerate(cities):
+        if index != len(cities) - 1:
+            print(city[0], end=', ')
+        else:
+            print(city[0])
 
     cursor.close()
     db.close()
