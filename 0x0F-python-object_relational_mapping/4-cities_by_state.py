@@ -28,8 +28,8 @@ def main():
     for city in cities:
         print(city)
 
-    cursor.close
-    db.close
+    cursor.close()
+    db.close()
 
 
 if __name__ == "__main___":
