@@ -13,9 +13,16 @@ def main():
     password = sys.argv[2]
     db_name = sys.argv[3]
 
-    db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=db_name)
+    db = MySQLdb.connect(host="localhost", port=3306, user=username,
+                         passwd=password, db=db_name)
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM cities ORDER BY id ASC")
+    query = """
+    SELECT cities.id, cities.name, states.name FROM cities
+    JOIN states
+    ON states.id = cities.state_id
+    ORDER BY cities.id ASC;
+    """
+    cursor.execute(query)
     cities = cursor.fetchall()
 
     for city in cities:
