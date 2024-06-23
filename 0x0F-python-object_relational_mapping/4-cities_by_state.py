@@ -16,11 +16,12 @@ def main():
     db = MySQLdb.connect(host="localhost", port=3306, user=username,
                          passwd=password, db=db_name)
     cursor = db.cursor()
+
     query = """
     SELECT cities.id, cities.name, states.name FROM cities
     JOIN states
     ON states.id = cities.state_id
-    ORDER BY cities.id ASC;
+    ORDER BY cities.id ASC
     """
     cursor.execute(query)
     cities = cursor.fetchall()
@@ -31,6 +32,5 @@ def main():
     cursor.close()
     db.close()
 
-
-if __name__ == "__main___":
+if __name__ == "__main__":
     main()
