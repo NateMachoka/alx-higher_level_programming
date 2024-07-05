@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
 A script that takes two arguments (repository name and owner name)
-Lists the 10 most recent commits of the specified repository by using the GitHub API
+Lists the 10 most recent commits of the specified repository
+Uses the GitHub API
 """
 import requests
 import sys
